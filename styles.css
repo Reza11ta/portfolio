@@ -921,6 +921,17 @@ body {
   box-shadow: 0 5px 15px rgba(51, 51, 51, 0.4);
 }
 
+.linkedin-btn {
+  background: linear-gradient(135deg, #0077b5, #005fa3);
+  color: white;
+}
+
+.linkedin-btn:hover {
+  background: linear-gradient(135deg, #005fa3, #00447b);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 119, 181, 0.4);
+}
+
 .form-group {
   margin-bottom: 1.5rem;
 }
@@ -2285,35 +2296,28 @@ body {
 /* ===== بهبود کدهای ریسپانسیو برای موبایل ===== */
 /* ============================================= */
 
-/* === بریک‌پوینت اصلی برای تبلت و موبایل (کمتر از 768 پیکسل) === */
 @media (max-width: 768px) {
-  /* --- ۱. اصلاح ساختار کلی صفحه --- */
   .container {
-    /* سایدبار به بالا منتقل می‌شود */
     flex-direction: column-reverse;
   }
 
   .main-content {
-    /* حذف فاصله اضافی کنار صفحه که برای سایدبار دسکتاپ بود */
     margin-right: 0 !important;
-    /* کاهش فاصله داخلی برای ایجاد فضای بیشتر */
     padding: 1.5rem 1rem;
   }
 
-  /* --- ۲. تنظیم سایدبار که در موبایل به هدر تبدیل می‌شود --- */
   .sidebar {
     width: 100%;
-    height: auto; /* ارتفاع اتوماتیک */
-    position: relative; /* حذف حالت fixed */
+    height: auto; 
+    position: relative; 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     padding: 1rem;
   }
 
   .profile-section {
-    /* چیدمان افقی عکس و متن پروفایل */
     display: flex;
     align-items: center;
-    text-align: right; /* متن‌ها راست‌چین می‌شوند */
+    text-align: right; 
     gap: 1rem;
     padding-bottom: 1rem;
     margin-bottom: 1rem;
@@ -2322,28 +2326,27 @@ body {
   .profile-image {
     width: 65px;
     height: 65px;
-    margin: 0; /* حذف margin auto */
-    flex-shrink: 0; /* جلوگیری از کوچک شدن عکس */
+    margin: 0; 
+    flex-shrink: 0; 
   }
 
   .profile-name {
     font-size: 1.2rem;
   }
 
-  /* منوی ناوبری به صورت افقی و وسط‌چین */
   .navigation-menu {
     flex-direction: row;
-    justify-content: space-around; /* توزیع یکنواخت آیتم‌ها */
+    justify-content: space-around; 
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin-top: 0; /* حذف فاصله از بالا */
+    margin-top: 0; 
   }
 
   .nav-item {
     flex-direction: column;
     padding: 0.5rem;
     gap: 0.25rem;
-    flex-grow: 1; /* رشد آیتم‌ها برای پر کردن فضا */
+    flex-grow: 1; 
     min-width: 70px;
   }
 
@@ -2357,24 +2360,21 @@ body {
     font-size: 0.7rem;
   }
 
-  /* حذف انیمیشن حرکت در موبایل برای تجربه کاربری بهتر */
   .nav-item,
   .nav-item:hover,
   .nav-item.active {
     transform: none !important;
   }
 
-  /* --- ۳. تک‌ستونی کردن تمام گریدها --- */
   .stats-section,
   .services-grid,
   .featured-grid,
   .projects-grid,
   .about-content {
-    grid-template-columns: 1fr; /* همه گریدها تک‌ستونی می‌شوند */
-    gap: 1.5rem; /* فاصله یکنواخت بین آیتم‌ها */
+    grid-template-columns: 1fr; 
+    gap: 1.5rem; 
   }
 
-  /* --- ۴. اصلاح چیدمان کارت پروژه شاخص --- */
   .featured-project {
     flex-direction: column;
     text-align: center;
@@ -2382,7 +2382,7 @@ body {
   }
 
   .project-image img {
-    width: 100px; /* اندازه ثابت و مناسب */
+    width: 100px; 
     height: 100px;
     object-fit: cover;
     margin: 0 auto 1rem;
@@ -2393,10 +2393,9 @@ body {
   }
 
   .project-tech {
-    justify-content: center; /* تگ‌ها وسط‌چین می‌شوند */
+    justify-content: center; 
   }
 
-  /* --- ۵. بهینه‌سازی تایپوگرافی و اندازه‌ها --- */
   .main-content h1 {
     font-size: 2.2rem;
   }
@@ -2411,10 +2410,9 @@ body {
     font-size: 1rem;
   }
 
-  /* --- ۶. بهبود بخش تماس با من --- */
   .contact-item {
     flex-direction: column;
-    align-items: center; /* همه چیز وسط‌چین */
+    align-items: center; 
     text-align: center;
   }
 
@@ -2424,14 +2422,13 @@ body {
   }
 }
 
-/* === بریک‌پوینت برای موبایل‌های خیلی کوچک (کمتر از 480 پیکسل) === */
 @media (max-width: 480px) {
   .main-content {
     padding: 1rem 0.75rem;
   }
 
   .profile-section {
-    flex-direction: column; /* در صفحه‌های خیلی کوچک، پروفایل عمودی می‌شود */
+    flex-direction: column; 
     gap: 0.5rem;
   }
 
@@ -2449,7 +2446,6 @@ body {
     font-size: 0.9rem;
   }
 
-  /* کاهش padding کارت‌ها برای ایجاد فضای بیشتر */
   .stat-card,
   .service-card,
   .project-card,
