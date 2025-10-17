@@ -670,9 +670,10 @@ body {
 }
 
 .project-logo img {
-  width: 100px;
-  height: 80px;
+  width: 140px;
+  height: 110px;
   border-radius: 15px;
+  object-fit: cover;
   transition: transform 0.3s ease;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
@@ -1438,8 +1439,8 @@ body {
   }
 
   .project-logo img {
-    width: 60px;
-    height: 60px;
+    width: 90px;
+    height: 72px;
   }
 
   .project-card h3 {
@@ -1808,8 +1809,8 @@ body {
   }
 
   .project-logo img {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 56px;
   }
 
   .project-card h3 {
@@ -2263,7 +2264,7 @@ body {
   padding: 1.25rem 0;
   padding-bottom: 0 !important  ;
   text-align: center;
-  color: #fbbf24; 
+  color: #fbbf24;
   font-weight: 600;
 }
 
@@ -2275,5 +2276,184 @@ body {
 @media (prefers-color-scheme: dark) {
   .site-footer {
     color: #fbbf24;
+  }
+}
+
+
+
+/* ============================================= */
+/* ===== بهبود کدهای ریسپانسیو برای موبایل ===== */
+/* ============================================= */
+
+/* === بریک‌پوینت اصلی برای تبلت و موبایل (کمتر از 768 پیکسل) === */
+@media (max-width: 768px) {
+  /* --- ۱. اصلاح ساختار کلی صفحه --- */
+  .container {
+    /* سایدبار به بالا منتقل می‌شود */
+    flex-direction: column-reverse;
+  }
+
+  .main-content {
+    /* حذف فاصله اضافی کنار صفحه که برای سایدبار دسکتاپ بود */
+    margin-right: 0 !important;
+    /* کاهش فاصله داخلی برای ایجاد فضای بیشتر */
+    padding: 1.5rem 1rem;
+  }
+
+  /* --- ۲. تنظیم سایدبار که در موبایل به هدر تبدیل می‌شود --- */
+  .sidebar {
+    width: 100%;
+    height: auto; /* ارتفاع اتوماتیک */
+    position: relative; /* حذف حالت fixed */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    padding: 1rem;
+  }
+
+  .profile-section {
+    /* چیدمان افقی عکس و متن پروفایل */
+    display: flex;
+    align-items: center;
+    text-align: right; /* متن‌ها راست‌چین می‌شوند */
+    gap: 1rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .profile-image {
+    width: 65px;
+    height: 65px;
+    margin: 0; /* حذف margin auto */
+    flex-shrink: 0; /* جلوگیری از کوچک شدن عکس */
+  }
+
+  .profile-name {
+    font-size: 1.2rem;
+  }
+
+  /* منوی ناوبری به صورت افقی و وسط‌چین */
+  .navigation-menu {
+    flex-direction: row;
+    justify-content: space-around; /* توزیع یکنواخت آیتم‌ها */
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0; /* حذف فاصله از بالا */
+  }
+
+  .nav-item {
+    flex-direction: column;
+    padding: 0.5rem;
+    gap: 0.25rem;
+    flex-grow: 1; /* رشد آیتم‌ها برای پر کردن فضا */
+    min-width: 70px;
+  }
+
+  .nav-item i {
+    margin-right: 0;
+    margin-bottom: 0.2rem;
+    font-size: 1rem;
+  }
+
+  .nav-item span {
+    font-size: 0.7rem;
+  }
+
+  /* حذف انیمیشن حرکت در موبایل برای تجربه کاربری بهتر */
+  .nav-item,
+  .nav-item:hover,
+  .nav-item.active {
+    transform: none !important;
+  }
+
+  /* --- ۳. تک‌ستونی کردن تمام گریدها --- */
+  .stats-section,
+  .services-grid,
+  .featured-grid,
+  .projects-grid,
+  .about-content {
+    grid-template-columns: 1fr; /* همه گریدها تک‌ستونی می‌شوند */
+    gap: 1.5rem; /* فاصله یکنواخت بین آیتم‌ها */
+  }
+
+  /* --- ۴. اصلاح چیدمان کارت پروژه شاخص --- */
+  .featured-project {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .project-image img {
+    width: 100px; /* اندازه ثابت و مناسب */
+    height: 100px;
+    object-fit: cover;
+    margin: 0 auto 1rem;
+  }
+
+  .project-info {
+    text-align: center;
+  }
+
+  .project-tech {
+    justify-content: center; /* تگ‌ها وسط‌چین می‌شوند */
+  }
+
+  /* --- ۵. بهینه‌سازی تایپوگرافی و اندازه‌ها --- */
+  .main-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .services-section h2,
+  .featured-projects h2,
+  .category-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .main-content p {
+    font-size: 1rem;
+  }
+
+  /* --- ۶. بهبود بخش تماس با من --- */
+  .contact-item {
+    flex-direction: column;
+    align-items: center; /* همه چیز وسط‌چین */
+    text-align: center;
+  }
+
+  .contact-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* === بریک‌پوینت برای موبایل‌های خیلی کوچک (کمتر از 480 پیکسل) === */
+@media (max-width: 480px) {
+  .main-content {
+    padding: 1rem 0.75rem;
+  }
+
+  .profile-section {
+    flex-direction: column; /* در صفحه‌های خیلی کوچک، پروفایل عمودی می‌شود */
+    gap: 0.5rem;
+  }
+
+  .main-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .services-section h2,
+  .featured-projects h2,
+  .category-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .main-content p {
+    font-size: 0.9rem;
+  }
+
+  /* کاهش padding کارت‌ها برای ایجاد فضای بیشتر */
+  .stat-card,
+  .service-card,
+  .project-card,
+  .featured-project {
+    padding: 1rem;
   }
 }
