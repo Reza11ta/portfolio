@@ -99,6 +99,7 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  overflow-x: clip;
 }
 
 body {
@@ -1753,6 +1754,9 @@ html.theme-anim .counters {
     gap: 4px;
     margin-inline-start: 0;
     padding: 12px;
+    max-height: calc(100dvh - var(--nav-h) - 28px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
     border-radius: 18px;
     background: var(--card-solid);
     border: 1px solid var(--line);
@@ -1803,11 +1807,26 @@ html.theme-anim .counters {
     width: min(var(--container), 100% - 32px);
   }
   .section {
-    padding-block: 66px;
+    padding-block: 58px;
+  }
+  .sec-head {
+    margin-block-end: 30px;
+  }
+  .sec-sub {
+    font-size: 0.96rem;
   }
 
   .hero {
     padding-block: calc(var(--nav-h) + 34px) 36px;
+  }
+  .hero-grid {
+    gap: 28px;
+  }
+  .hero-visual {
+    width: min(360px, 100%);
+  }
+  .aura {
+    inset-inline: -7%;
   }
   .hero-cta {
     width: 100%;
@@ -1826,11 +1845,11 @@ html.theme-anim .counters {
   }
   .chip-1 {
     top: 3%;
-    inset-inline-start: -2%;
+    inset-inline-start: 0;
   }
   .chip-2 {
     top: 42%;
-    inset-inline-end: -3%;
+    inset-inline-end: 0;
   }
   .chip-3 {
     bottom: 8%;
@@ -1842,9 +1861,15 @@ html.theme-anim .counters {
   .about-facts {
     padding: 22px 18px;
   }
+  .counters {
+    padding: 20px 14px;
+  }
+  .counter-label {
+    font-size: 0.84rem;
+  }
 
   .skills-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(150px, 100%), 1fr));
     gap: 12px;
   }
   .skill {
@@ -1867,10 +1892,14 @@ html.theme-anim .counters {
     height: 28px;
   }
   .tabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
     border-radius: 18px;
   }
   .tabs button {
-    padding: 9px 15px;
+    min-width: 0;
+    padding: 9px 8px;
     font-size: 0.88rem;
   }
 
@@ -1900,13 +1929,47 @@ html.theme-anim .counters {
   .teach-card {
     padding: 24px 20px;
   }
+  .teach-note {
+    padding: 16px;
+  }
+
+  .contact-btn {
+    gap: 12px;
+    padding: 15px 16px;
+  }
 
   .contact-cta {
     padding: 18px;
     font-size: 0.97rem;
   }
   .footer-inner {
-    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .footer-copy {
+    flex-wrap: wrap;
+    font-size: 0.84rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .container {
+    width: min(var(--container), 100% - 28px);
+  }
+  .nav-inner {
+    gap: 10px;
+  }
+  .nav-actions {
+    gap: 6px;
+  }
+  .icon-btn {
+    width: 42px;
+    height: 42px;
+  }
+  .counter-num {
+    font-size: 1.7rem;
+  }
+  .skill {
+    padding-inline: 10px;
   }
 }
 
