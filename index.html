@@ -1,0 +1,901 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="pageTitle">رضا توکلی</title>
+    <script>
+      /* اعمال سریع تم قبل از رندر تا از پرش نور جلوگیری شود */
+      (function () {
+        try {
+          var s = localStorage.getItem("rt-theme");
+          var d = s === "dark" || s === "light" ? s : "light";
+          document.documentElement.setAttribute("data-theme", d);
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Vazirmatn:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main" data-i18n="skip">پرش به محتوای اصلی</a>
+
+    <!-- لایه‌های پس‌زمینه: گرید نقطه‌ای + هاله‌ی بنفش -->
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow-1" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow-2" aria-hidden="true"></div>
+
+    <!-- گرادیان حلقه‌ی مهارت‌ها (یک بار تعریف می‌شود) -->
+    <svg
+      width="0"
+      height="0"
+      class="svg-defs"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <defs>
+        <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#a78bfa"></stop>
+          <stop offset="100%" stop-color="#7c3aed"></stop>
+        </linearGradient>
+      </defs>
+    </svg>
+
+    <!-- ============ NAVBAR ============ -->
+    <header class="nav" id="top">
+      <div class="container nav-inner">
+        <a href="#top" class="logo" data-i18n-attr="aria-label:nav.logoAria"
+          ><span>RT</span></a
+        >
+
+        <nav
+          class="nav-links"
+          id="navLinks"
+          data-i18n-attr="aria-label:nav.aria"
+        >
+          <a href="#about" data-i18n="nav.about"></a>
+          <a href="#skills" data-i18n="nav.skills"></a>
+          <a href="#experience" data-i18n="nav.experience"></a>
+          <a href="#projects" data-i18n="nav.projects"></a>
+          <a href="#teaching" data-i18n="nav.teaching"></a>
+          <a href="#contact" data-i18n="nav.contact"></a>
+        </nav>
+
+        <div class="nav-actions">
+          <button
+            type="button"
+            class="icon-btn lang-btn"
+            id="langBtn"
+            aria-label="Switch language to English"
+            title="Switch language to English"
+          >
+            <span aria-hidden="true">EN</span>
+          </button>
+          <button
+            type="button"
+            class="icon-btn theme-btn"
+            id="themeBtn"
+            data-i18n-attr="aria-label:nav.themeAria"
+          >
+            <i data-lucide="sun" class="ico-sun" aria-hidden="true"></i>
+            <i data-lucide="moon" class="ico-moon" aria-hidden="true"></i>
+          </button>
+          <button
+            type="button"
+            class="icon-btn menu-btn"
+            id="menuBtn"
+            aria-expanded="false"
+            aria-controls="navLinks"
+            data-i18n-attr="aria-label:nav.menuAria"
+          >
+            <i data-lucide="menu" class="ico-menu" aria-hidden="true"></i>
+            <i data-lucide="x" class="ico-close" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- ============ HERO ============ -->
+      <section class="hero" aria-labelledby="heroName">
+        <div class="container hero-grid">
+          <div class="hero-text" data-reveal>
+            <p class="kicker" data-i18n="hero.kicker"></p>
+            <h1 class="hero-name" id="heroName" data-i18n="hero.name"></h1>
+            <p class="hero-role"><span data-i18n="hero.role"></span></p>
+            <p class="hero-intro" data-i18n="hero.intro"></p>
+
+            <div class="hero-cta">
+              <a href="#projects" class="btn btn-primary" data-magnetic>
+                <i data-lucide="rocket" aria-hidden="true"></i>
+                <span data-i18n="hero.ctaProjects"></span>
+              </a>
+              <a href="#contact" class="btn btn-ghost" data-magnetic>
+                <i data-lucide="message-circle" aria-hidden="true"></i>
+                <span data-i18n="hero.ctaContact"></span>
+              </a>
+            </div>
+
+            <!-- کارت ترمینال: متن ثابت، بدون انیمیشن تایپ -->
+            <div
+              class="terminal"
+              data-i18n-attr="aria-label:hero.termAria"
+              role="figure"
+            >
+              <div class="terminal-bar">
+                <span class="dot dot-r" aria-hidden="true"></span>
+                <span class="dot dot-y" aria-hidden="true"></span>
+                <span class="dot dot-g" aria-hidden="true"></span>
+                <b data-i18n="hero.termTitle"></b>
+              </div>
+              <pre
+                class="terminal-body"
+              ><span class="t-cmd" data-i18n="hero.t1"></span>
+<span class="t-out" data-i18n="hero.t2"></span>
+<span class="t-cmd" data-i18n="hero.t3"></span>
+<span class="t-out" data-i18n="hero.t4"></span>
+<span class="t-cmd" data-i18n="hero.t5"></span>
+<span class="t-out t-cursor" data-i18n="hero.t6"></span></pre>
+            </div>
+          </div>
+
+          <div class="hero-visual" data-reveal>
+            <div class="aura" aria-hidden="true"></div>
+            <div class="photo-wrap" id="photoWrap">
+              <span class="photo-fallback" aria-hidden="true">RT</span>
+              <img
+                id="heroPhoto"
+                src="image/reza.png"
+                data-i18n-attr="alt:hero.imgAlt"
+                onerror="
+                  this.classList.add('img-failed');
+                  this.parentElement.classList.add('no-photo');
+                "
+              />
+            </div>
+            <span class="chip chip-1" data-i18n="hero.badge1"></span>
+            <span class="chip chip-2" data-i18n="hero.badge2"></span>
+            <span class="chip chip-3" data-i18n="hero.badge3"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ COUNTERS ============ -->
+      <section class="counters-strip" data-i18n-attr="aria-label:counters.aria">
+        <div class="container counters">
+          <div class="counter" data-reveal>
+            <span class="counter-num" data-count="10" data-suffix="+">0</span>
+            <span class="counter-label" data-i18n="counters.projects"></span>
+          </div>
+          <div class="counter" data-reveal>
+            <span class="counter-num" data-count="3" data-suffix="+">0</span>
+            <span class="counter-label" data-i18n="counters.years"></span>
+          </div>
+          <div class="counter" data-reveal>
+            <span class="counter-num" data-count="15" data-suffix="+">0</span>
+            <span class="counter-label" data-i18n="counters.team"></span>
+          </div>
+          <div class="counter" data-reveal>
+            <span class="counter-num" data-count="3" data-suffix="">0</span>
+            <span class="counter-label" data-i18n="counters.teaching"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ ABOUT ============ -->
+      <section class="section about" id="about" aria-labelledby="aboutTitle">
+        <div class="container">
+          <header class="sec-head" data-reveal>
+            <p class="kicker" data-i18n="about.kicker"></p>
+            <h2 id="aboutTitle" data-i18n="about.title"></h2>
+          </header>
+
+          <div class="about-grid">
+            <div class="about-copy glass" data-reveal>
+              <p data-i18n="about.p1"></p>
+              <p data-i18n="about.p2"></p>
+              <p data-i18n="about.p3"></p>
+              <a
+                class="about-link"
+                href="https://jambrs.ir"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i data-lucide="external-link" aria-hidden="true"></i>
+                <span data-i18n="about.jambrsLink"></span>
+              </a>
+            </div>
+
+            <aside
+              class="about-facts"
+              data-reveal
+              data-i18n-attr="aria-label:about.factsTitle"
+            >
+              <h3 class="mono"><span data-i18n="about.factsTitle"></span></h3>
+              <ul class="mono facts-list">
+                <li data-i18n="about.facts.0"></li>
+                <li data-i18n="about.facts.1"></li>
+                <li data-i18n="about.facts.2"></li>
+                <li data-i18n="about.facts.3"></li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ SKILLS ============ -->
+      <section class="section skills" id="skills" aria-labelledby="skillsTitle">
+        <div class="container">
+          <header class="sec-head" data-reveal>
+            <p class="kicker" data-i18n="skills.kicker"></p>
+            <h2 id="skillsTitle" data-i18n="skills.title"></h2>
+            <p class="sec-sub" data-i18n="skills.sub"></p>
+          </header>
+
+          <div
+            class="tabs"
+            role="tablist"
+            data-i18n-attr="aria-label:skills.catsAria"
+            data-reveal
+          >
+            <button
+              type="button"
+              role="tab"
+              id="tab-frontend"
+              aria-controls="panel-frontend"
+              aria-selected="true"
+              data-cat="frontend"
+              data-i18n="skills.cats.frontend"
+            ></button>
+            <button
+              type="button"
+              role="tab"
+              id="tab-backend"
+              aria-controls="panel-backend"
+              aria-selected="false"
+              tabindex="-1"
+              data-cat="backend"
+              data-i18n="skills.cats.backend"
+            ></button>
+            <button
+              type="button"
+              role="tab"
+              id="tab-infra"
+              aria-controls="panel-infra"
+              aria-selected="false"
+              tabindex="-1"
+              data-cat="infra"
+              data-i18n="skills.cats.infra"
+            ></button>
+            <button
+              type="button"
+              role="tab"
+              id="tab-soft"
+              aria-controls="panel-soft"
+              aria-selected="false"
+              tabindex="-1"
+              data-cat="soft"
+              data-i18n="skills.cats.soft"
+            ></button>
+          </div>
+
+          <div class="skills-panels">
+            <div
+              class="skills-grid"
+              role="tabpanel"
+              id="panel-frontend"
+              aria-labelledby="tab-frontend"
+              data-cat="frontend"
+              data-i18n-attr="aria-label:skills.listAria"
+            ></div>
+            <div
+              class="skills-grid"
+              role="tabpanel"
+              id="panel-backend"
+              aria-labelledby="tab-backend"
+              data-cat="backend"
+              hidden
+              data-i18n-attr="aria-label:skills.listAria"
+            ></div>
+            <div
+              class="skills-grid"
+              role="tabpanel"
+              id="panel-infra"
+              aria-labelledby="tab-infra"
+              data-cat="infra"
+              hidden
+              data-i18n-attr="aria-label:skills.listAria"
+            ></div>
+            <div
+              class="skills-grid"
+              role="tabpanel"
+              id="panel-soft"
+              aria-labelledby="tab-soft"
+              data-cat="soft"
+              hidden
+              data-i18n-attr="aria-label:skills.listAria"
+            ></div>
+          </div>
+        </div>
+      </section>
+      <!-- ============ EXPERIENCE ============ -->
+      <section
+        class="section experience"
+        id="experience"
+        aria-labelledby="expTitle"
+      >
+        <div class="container">
+          <header class="sec-head" data-reveal>
+            <p class="kicker" data-i18n="experience.kicker"></p>
+            <h2 id="expTitle" data-i18n="experience.title"></h2>
+            <p class="sec-sub" data-i18n="experience.sub"></p>
+          </header>
+
+          <ol class="timeline">
+            <li class="tl-item" data-reveal>
+              <span class="tl-dot" aria-hidden="true"></span>
+              <article class="tl-card glass">
+                <span
+                  class="tl-date mono"
+                  data-i18n="experience.items.e1.date"
+                ></span>
+                <h3 data-i18n="experience.items.e1.title"></h3>
+                <p class="tl-org" data-i18n="experience.items.e1.org"></p>
+                <ul class="tl-bullets">
+                  <li data-i18n="experience.items.e1.bullets.0"></li>
+                  <li data-i18n="experience.items.e1.bullets.1"></li>
+                  <li data-i18n="experience.items.e1.bullets.2"></li>
+                </ul>
+              </article>
+            </li>
+
+            <li class="tl-item" data-reveal>
+              <span class="tl-dot" aria-hidden="true"></span>
+              <article class="tl-card glass">
+                <span
+                  class="tl-date mono"
+                  data-i18n="experience.items.e2.date"
+                ></span>
+                <h3 data-i18n="experience.items.e2.title"></h3>
+                <p class="tl-org" data-i18n="experience.items.e2.org"></p>
+                <ul class="tl-bullets">
+                  <li data-i18n="experience.items.e2.bullets.0"></li>
+                  <li data-i18n="experience.items.e2.bullets.1"></li>
+                  <li data-i18n="experience.items.e2.bullets.2"></li>
+                </ul>
+              </article>
+            </li>
+
+            <li class="tl-item tl-now" data-reveal>
+              <span class="tl-dot" aria-hidden="true"></span>
+              <article class="tl-card glass">
+                <span
+                  class="tl-date mono"
+                  data-i18n="experience.items.e3.date"
+                ></span>
+                <h3 data-i18n="experience.items.e3.title"></h3>
+                <p class="tl-org">
+                  <span data-i18n="experience.items.e3.org"></span>
+                  <a
+                    class="tl-link"
+                    href="https://jambrs.ir"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span data-i18n="experience.items.e3.linkLabel"></span>
+                    <i data-lucide="arrow-up-left" aria-hidden="true"></i>
+                  </a>
+                </p>
+                <ul class="tl-bullets">
+                  <li data-i18n="experience.items.e3.bullets.0"></li>
+                  <li data-i18n="experience.items.e3.bullets.1"></li>
+                  <li data-i18n="experience.items.e3.bullets.2"></li>
+                </ul>
+              </article>
+            </li>
+          </ol>
+        </div>
+      </section>
+      <!-- ============ PROJECTS ============ -->
+      <section
+        class="section projects"
+        id="projects"
+        aria-labelledby="projTitle"
+      >
+        <div class="container">
+          <header class="sec-head" data-reveal>
+            <p class="kicker" data-i18n="projects.kicker"></p>
+            <h2 id="projTitle" data-i18n="projects.title"></h2>
+            <p class="sec-sub" data-i18n="projects.sub"></p>
+          </header>
+
+          <!-- گروه A: طراحی و توسعه کامل -->
+          <div class="proj-group" data-reveal>
+            <h3 class="proj-group-title mono">
+              <span class="pg-dot" aria-hidden="true"></span
+              ><span data-i18n="projects.groupA"></span>
+            </h3>
+            <div class="proj-grid">
+              <article class="proj featured spot" data-reveal>
+                <div class="proj-top">
+                  <div class="proj-logo">
+                    <span class="logo-fallback" aria-hidden="true">PM</span>
+                    <img
+                      src="image/projects/persianmenu.png"
+                      alt=""
+                      loading="lazy"
+                      onerror="this.classList.add('img-failed')"
+                    />
+                  </div>
+                  <span
+                    class="proj-flag mono"
+                    data-i18n="projects.featuredFlag"
+                  ></span>
+                </div>
+                <div class="proj-body">
+                  <h4 data-i18n="projects.items.persianmenu.title"></h4>
+                  <p data-i18n="projects.items.persianmenu.desc"></p>
+                  <p
+                    class="proj-tags mono"
+                    data-i18n="projects.items.persianmenu.tags"
+                  ></p>
+                  <a
+                    class="btn btn-small"
+                    href="https://persianmenu.ir"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span data-i18n="projects.view"></span>
+                    <i data-lucide="arrow-up-left" aria-hidden="true"></i>
+                    <span class="sr-only" data-i18n="projects.opensNew"></span>
+                  </a>
+                </div>
+              </article>
+
+              <article class="proj spot" data-reveal>
+                <div class="proj-top">
+                  <div class="proj-logo logo-jambrs">
+                    <span class="logo-fallback" aria-hidden="true">J</span>
+                    <img
+                      src="image/projects/jambrs.webp"
+                      alt=""
+                      loading="lazy"
+                      onerror="this.classList.add('img-failed')"
+                    />
+                  </div>
+                </div>
+                <div class="proj-body">
+                  <h4 data-i18n="projects.items.jambrs.title"></h4>
+                  <p data-i18n="projects.items.jambrs.desc"></p>
+                  <p
+                    class="proj-tags mono"
+                    data-i18n="projects.items.jambrs.tags"
+                  ></p>
+                  <a
+                    class="btn btn-small"
+                    href="https://jambrs.ir"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span data-i18n="projects.view"></span>
+                    <i data-lucide="arrow-up-left" aria-hidden="true"></i>
+                    <span class="sr-only" data-i18n="projects.opensNew"></span>
+                  </a>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- گروه B: توسعه بک‌اند + هاستینگ -->
+          <div class="proj-group" data-reveal>
+            <h3 class="proj-group-title mono">
+              <span class="pg-dot" aria-hidden="true"></span
+              ><span data-i18n="projects.groupB"></span>
+            </h3>
+            <div class="proj-grid three">
+              <article class="proj spot" data-reveal>
+                <div class="proj-top">
+                  <div class="proj-logo logo-mzclinic">
+                    <span class="logo-fallback" aria-hidden="true">MZ</span>
+                    <img
+                      src="image/projects/mzclinic.webp"
+                      alt=""
+                      loading="lazy"
+                      onerror="this.classList.add('img-failed')"
+                    />
+                  </div>
+                </div>
+                <div class="proj-body">
+                  <h4 data-i18n="projects.items.mzclinic.title"></h4>
+                  <p data-i18n="projects.items.mzclinic.desc"></p>
+                  <p
+                    class="proj-tags mono"
+                    data-i18n="projects.items.mzclinic.tags"
+                  ></p>
+                  <a
+                    class="btn btn-small"
+                    href="https://mzclinic.ir"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span data-i18n="projects.view"></span>
+                    <i data-lucide="arrow-up-left" aria-hidden="true"></i>
+                    <span class="sr-only" data-i18n="projects.opensNew"></span>
+                  </a>
+                </div>
+              </article>
+
+              <article class="proj spot" data-reveal>
+                <div class="proj-top">
+                  <div class="proj-logo logo-sepahantak">
+                    <span class="logo-fallback" aria-hidden="true">ST</span>
+                    <img
+                      src="image/projects/sepahantak.webp"
+                      alt=""
+                      loading="lazy"
+                      onerror="this.classList.add('img-failed')"
+                    />
+                  </div>
+                </div>
+                <div class="proj-body">
+                  <h4 data-i18n="projects.items.sepahantak.title"></h4>
+                  <p data-i18n="projects.items.sepahantak.desc"></p>
+                  <p
+                    class="proj-tags mono"
+                    data-i18n="projects.items.sepahantak.tags"
+                  ></p>
+                  <a
+                    class="btn btn-small"
+                    href="https://sepahantak.ir"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span data-i18n="projects.view"></span>
+                    <i data-lucide="arrow-up-left" aria-hidden="true"></i>
+                    <span class="sr-only" data-i18n="projects.opensNew"></span>
+                  </a>
+                </div>
+              </article>
+
+              <article class="proj spot" data-reveal>
+                <div class="proj-top">
+                  <div class="proj-logo">
+                    <span class="logo-fallback" aria-hidden="true">ED</span>
+                    <img
+                      src="image/projects/elhamdavari.webp"
+                      alt=""
+                      loading="lazy"
+                      onerror="this.classList.add('img-failed')"
+                    />
+                  </div>
+                </div>
+                <div class="proj-body">
+                  <h4 data-i18n="projects.items.elham.title"></h4>
+                  <p data-i18n="projects.items.elham.desc"></p>
+                  <p
+                    class="proj-tags mono"
+                    data-i18n="projects.items.elham.tags"
+                  ></p>
+                  <a
+                    class="btn btn-small"
+                    href="https://elhamdavarihair.ir"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span data-i18n="projects.view"></span>
+                    <i data-lucide="arrow-up-left" aria-hidden="true"></i>
+                    <span class="sr-only" data-i18n="projects.opensNew"></span>
+                  </a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ TEACHING ============ -->
+      <section
+        class="section teaching"
+        id="teaching"
+        aria-labelledby="teachTitle"
+      >
+        <div class="container">
+          <header class="sec-head" data-reveal>
+            <p class="kicker" data-i18n="teaching.kicker"></p>
+            <h2 id="teachTitle" data-i18n="teaching.title"></h2>
+            <p class="sec-sub" data-i18n="teaching.sub"></p>
+          </header>
+
+          <div class="teach-grid">
+            <article class="teach-card glass" data-reveal>
+              <span class="teach-icon" aria-hidden="true"
+                ><i data-lucide="languages"></i
+              ></span>
+              <span class="teach-meta mono"
+                ><i data-lucide="clock" aria-hidden="true"></i
+                ><span data-i18n="teaching.cards.t1.meta"></span
+              ></span>
+              <h3 data-i18n="teaching.cards.t1.title"></h3>
+              <p data-i18n="teaching.cards.t1.desc"></p>
+            </article>
+
+            <article class="teach-card glass" data-reveal>
+              <span class="teach-icon" aria-hidden="true"
+                ><i data-lucide="database"></i
+              ></span>
+              <span class="teach-meta mono"
+                ><i data-lucide="clock" aria-hidden="true"></i
+                ><span data-i18n="teaching.cards.t2.meta"></span
+              ></span>
+              <h3 data-i18n="teaching.cards.t2.title"></h3>
+              <p data-i18n="teaching.cards.t2.desc"></p>
+            </article>
+
+            <article class="teach-card glass" data-reveal>
+              <span class="teach-icon" aria-hidden="true"
+                ><i data-lucide="layout"></i
+              ></span>
+              <span class="teach-meta mono"
+                ><i data-lucide="clock" aria-hidden="true"></i
+                ><span data-i18n="teaching.cards.t3.meta"></span
+              ></span>
+              <h3 data-i18n="teaching.cards.t3.title"></h3>
+              <p data-i18n="teaching.cards.t3.desc"></p>
+            </article>
+          </div>
+
+          <p class="teach-note" data-reveal>
+            <i data-lucide="users" aria-hidden="true"></i>
+            <span data-i18n="teaching.note"></span>
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ CONTACT ============ -->
+      <section
+        class="section contact"
+        id="contact"
+        aria-labelledby="contactTitle"
+      >
+        <div class="container">
+          <header class="sec-head" data-reveal>
+            <p class="kicker" data-i18n="contact.kicker"></p>
+            <h2 id="contactTitle" data-i18n="contact.title"></h2>
+            <p class="sec-sub" data-i18n="contact.sub"></p>
+          </header>
+
+          <div class="contact-grid">
+            <a
+              class="contact-btn glass spot"
+              href="mailto:reza1110ta@gmail.com"
+              data-reveal
+            >
+              <span class="cb-icon" aria-hidden="true"
+                ><i data-lucide="mail"></i
+              ></span>
+              <span class="cb-text"
+                ><b data-i18n="contact.email"></b
+                ><small data-i18n="contact.emailSub"></small
+              ></span>
+              <i
+                class="cb-arrow"
+                data-lucide="arrow-up-left"
+                aria-hidden="true"
+              ></i>
+            </a>
+
+            <a
+              class="contact-btn glass spot"
+              href="https://t.me/eareza11"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-reveal
+            >
+              <span class="cb-icon" aria-hidden="true"
+                ><i data-lucide="send"></i
+              ></span>
+              <span class="cb-text"
+                ><b data-i18n="contact.telegram"></b
+                ><small data-i18n="contact.telegramSub"></small
+              ></span>
+              <i
+                class="cb-arrow"
+                data-lucide="arrow-up-left"
+                aria-hidden="true"
+              ></i>
+            </a>
+
+            <a
+              class="contact-btn glass spot"
+              href="https://instagram.com/eareza11"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-reveal
+            >
+              <span class="cb-icon" aria-hidden="true"
+                ><svg
+                  class="brand-icon instagram-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <rect
+                    x="3"
+                    y="3"
+                    width="18"
+                    height="18"
+                    rx="5"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="4"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                  <circle
+                    cx="17.5"
+                    cy="6.5"
+                    r="1.25"
+                    fill="currentColor"
+                  /></svg
+              ></span>
+              <span class="cb-text"
+                ><b data-i18n="contact.instagram"></b
+                ><small data-i18n="contact.instagramSub"></small
+              ></span>
+              <i
+                class="cb-arrow"
+                data-lucide="arrow-up-left"
+                aria-hidden="true"
+              ></i>
+            </a>
+
+            <a
+              class="contact-btn glass spot"
+              href="https://jambrs.ir"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-reveal
+            >
+              <span class="cb-icon" aria-hidden="true"
+                ><i data-lucide="globe"></i
+              ></span>
+              <span class="cb-text"
+                ><b data-i18n="contact.jambrs"></b
+                ><small data-i18n="contact.jambrsSub"></small
+              ></span>
+              <i
+                class="cb-arrow"
+                data-lucide="arrow-up-left"
+                aria-hidden="true"
+              ></i>
+            </a>
+
+            <a
+              class="contact-btn glass spot"
+              href="https://instagram.com/jambrs.ir"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-reveal
+            >
+              <span class="cb-icon" aria-hidden="true"
+                ><svg
+                  class="brand-icon instagram-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <rect
+                    x="3"
+                    y="3"
+                    width="18"
+                    height="18"
+                    rx="5"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="4"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                  <circle
+                    cx="17.5"
+                    cy="6.5"
+                    r="1.25"
+                    fill="currentColor"
+                  /></svg
+              ></span>
+              <span class="cb-text"
+                ><b data-i18n="contact.jambrsIg"></b
+                ><small data-i18n="contact.jambrsIgSub"></small
+              ></span>
+              <i
+                class="cb-arrow"
+                data-lucide="arrow-up-left"
+                aria-hidden="true"
+              ></i>
+            </a>
+
+            <a
+              class="github-mini"
+              href="https://github.com/Reza11ta"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-i18n-attr="aria-label:contact.githubAria"
+              data-reveal
+            >
+              <svg
+                class="brand-icon github-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  fill="currentColor"
+                  d="M12 .75a11.25 11.25 0 0 0-3.56 21.92c.56.1.77-.24.77-.54v-2.1c-3.14.68-3.8-1.33-3.8-1.33-.5-1.3-1.25-1.65-1.25-1.65-1.03-.7.08-.69.08-.69 1.14.08 1.73 1.16 1.73 1.16 1.01 1.72 2.64 1.23 3.28.94.1-.73.4-1.23.72-1.51-2.51-.29-5.15-1.26-5.15-5.59 0-1.24.44-2.24 1.16-3.03-.12-.29-.5-1.44.11-2.99 0 0 .95-.3 3.11 1.16a10.8 10.8 0 0 1 5.66 0c2.16-1.46 3.1-1.16 3.1-1.16.62 1.55.23 2.7.12 2.99.73.79 1.16 1.8 1.16 3.03 0 4.34-2.64 5.3-5.16 5.58.41.35.78 1.04.78 2.09v3.1c0 .3.2.65.78.54A11.25 11.25 0 0 0 12 .75Z"
+                />
+              </svg>
+            </a>
+          </div>
+
+          <p class="contact-cta" data-reveal>
+            <span class="mono cta-caret" aria-hidden="true">&gt;_</span>
+            <span data-i18n="contact.cta"></span>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p class="footer-copy" id="footerCopy">
+          <span data-i18n="footer.creditBefore"></span
+          ><svg
+            class="coffee-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M4 8h13v7a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V8Z"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M17 10h1a3 3 0 1 1 0 6h-2M7 3c0 1 1 1 1 2M12 3c0 1 1 1 1 2"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            /></svg
+          ><span data-i18n="footer.creditAfter"></span>
+        </p>
+        <a
+          href="#main"
+          class="icon-btn"
+          data-i18n-attr="aria-label:footer.topAria"
+        >
+          <i data-lucide="arrow-up" aria-hidden="true"></i>
+        </a>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
