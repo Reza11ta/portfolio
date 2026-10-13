@@ -6,7 +6,6 @@
     <title data-i18n="pageTitle">رضا توکلی</title>
     <link rel="icon" type="image/png" href="image/reza.png" />
     <script>
-      /* اعمال سریع تم قبل از رندر تا از پرش نور جلوگیری شود */
       (function () {
         try {
           var s = localStorage.getItem("rt-theme");
@@ -32,12 +31,12 @@
   <body>
     <a class="skip-link" href="#main" data-i18n="skip">پرش به محتوای اصلی</a>
 
-    <!-- لایه‌های پس‌زمینه: گرید نقطه‌ای + هاله‌ی بنفش -->
+    
     <div class="bg-grid" aria-hidden="true"></div>
     <div class="bg-glow bg-glow-1" aria-hidden="true"></div>
     <div class="bg-glow bg-glow-2" aria-hidden="true"></div>
 
-    <!-- گرادیان حلقه‌ی مهارت‌ها (یک بار تعریف می‌شود) -->
+    
     <svg
       width="0"
       height="0"
@@ -53,7 +52,7 @@
       </defs>
     </svg>
 
-    <!-- ============ NAVBAR ============ -->
+    
     <header class="nav" id="top">
       <div class="container nav-inner">
         <a href="#top" class="logo" data-i18n-attr="aria-label:nav.logoAria"
@@ -108,7 +107,7 @@
     </header>
 
     <main id="main">
-      <!-- ============ HERO ============ -->
+      
       <section class="hero" aria-labelledby="heroName">
         <div class="container hero-grid">
           <div class="hero-text" data-reveal>
@@ -128,7 +127,7 @@
               </a>
             </div>
 
-            <!-- کارت ترمینال: متن ثابت، بدون انیمیشن تایپ -->
+            
             <div
               class="terminal"
               data-i18n-attr="aria-label:hero.termAria"
@@ -172,7 +171,7 @@
         </div>
       </section>
 
-      <!-- ============ COUNTERS ============ -->
+      
       <section class="counters-strip" data-i18n-attr="aria-label:counters.aria">
         <div class="container counters">
           <div class="counter" data-reveal>
@@ -194,7 +193,7 @@
         </div>
       </section>
 
-      <!-- ============ ABOUT ============ -->
+      
       <section class="section about" id="about" aria-labelledby="aboutTitle">
         <div class="container">
           <header class="sec-head" data-reveal>
@@ -235,7 +234,7 @@
         </div>
       </section>
 
-      <!-- ============ SKILLS ============ -->
+      
       <section class="section skills" id="skills" aria-labelledby="skillsTitle">
         <div class="container">
           <header class="sec-head" data-reveal>
@@ -330,7 +329,7 @@
           </div>
         </div>
       </section>
-      <!-- ============ EXPERIENCE ============ -->
+      
       <section
         class="section experience"
         id="experience"
@@ -408,7 +407,7 @@
           </ol>
         </div>
       </section>
-      <!-- ============ PROJECTS ============ -->
+      
       <section
         class="section projects"
         id="projects"
@@ -421,7 +420,7 @@
             <p class="sec-sub" data-i18n="projects.sub"></p>
           </header>
 
-          <!-- گروه A: طراحی و توسعه کامل -->
+          
           <div class="proj-group" data-reveal>
             <h3 class="proj-group-title mono">
               <span class="pg-dot" aria-hidden="true"></span
@@ -495,10 +494,36 @@
                   </a>
                 </div>
               </article>
+
+              <article class="proj spot" data-reveal>
+                <div class="proj-top">
+                  <div class="proj-logo">
+                    <span class="logo-fallback" aria-hidden="true">SY</span>
+                  </div>
+                </div>
+                <div class="proj-body">
+                  <h4 data-i18n="projects.items.sarayoga.title"></h4>
+                  <p data-i18n="projects.items.sarayoga.desc"></p>
+                  <p
+                    class="proj-tags mono"
+                    data-i18n="projects.items.sarayoga.tags"
+                  ></p>
+                  <a
+                    class="btn btn-small"
+                    href="https://sarayoga.ir"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span data-i18n="projects.view"></span>
+                    <i data-lucide="arrow-up-left" aria-hidden="true"></i>
+                    <span class="sr-only" data-i18n="projects.opensNew"></span>
+                  </a>
+                </div>
+              </article>
             </div>
           </div>
 
-          <!-- گروه B: توسعه بک‌اند + هاستینگ -->
+          
           <div class="proj-group" data-reveal>
             <h3 class="proj-group-title mono">
               <span class="pg-dot" aria-hidden="true"></span
@@ -605,7 +630,7 @@
         </div>
       </section>
 
-      <!-- ============ TEACHING ============ -->
+      
       <section
         class="section teaching"
         id="teaching"
@@ -663,7 +688,7 @@
         </div>
       </section>
 
-      <!-- ============ CONTACT ============ -->
+      
       <section
         class="section contact"
         id="contact"
@@ -861,7 +886,7 @@
       </section>
     </main>
 
-    <!-- ============ FOOTER ============ -->
+    
     <footer class="footer">
       <div class="container footer-inner">
         <p class="footer-copy" id="footerCopy">

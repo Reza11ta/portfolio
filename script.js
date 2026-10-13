@@ -1,13 +1,5 @@
-/* =========================================================
-   رضا توکلی — پورتفولیو
-   ماژول‌ها: i18n / theme / nav / reveal / counters / skills
-             tabs / spotlight / magnetic / parallax / footer
-   ========================================================= */
 "use strict";
 
-/* =========================================================
-   1) i18n — تمام متن‌های قابل‌نمایش در همین شیء است
-   ========================================================= */
 const translations = {
   fa: {
     pageTitle: "رضا توکلی | پورتفولیو",
@@ -33,7 +25,7 @@ const translations = {
       name: "رضا توکلی",
       role: "توسعه‌دهنده‌ی فول‌استک، عاشق امنیت، و منتور تیم‌های فنی",
       intro:
-        "۱۹ سالمه، دانشجوی مهندسی کامپیوتر پیام‌نور اصفهان (همون دانشجوی درس‌نخون معروف!) و بنیان‌گذار جامبرس. بیشتر وقتم را صرف ساخت محصول، حل مسئله و کمک به رشد تیم‌ها می‌کنم.",
+        "۱۹ سالمه، دانشجوی مهندسی کامپیوتر پیام‌نور اصفهان (همون دانشجوی درس‌نخون !) و بنیان‌گذار جامبرس. بیشتر وقتم را صرف ساخت محصول، حل مسئله و کمک به رشد تیم‌ها می‌کنم.",
       ctaProjects: "ببین چیکار کردم",
       ctaContact: "بیا حرف بزنیم",
       imgAlt: "عکس پرتره رضا توکلی",
@@ -190,6 +182,11 @@ const translations = {
           title: "Elham Davari Hair",
           desc: "سایت معرفی و خدماتی سالن تخصصی مو در اصفهان؛ خدمات، نمونه‌کارها و ارتباط سریع با مشتری.",
           tags: "PHP",
+        },
+        sarayoga: {
+          title: "Sara Yoga",
+          desc: "سایت معرفی و خدماتی سارا یوگا؛ معرفی کلاس‌ها و خدمات، طراحی و توسعه‌ی کامل با HTML، CSS و JavaScript، سبک و سریع.",
+          tags: "HTML · CSS · JavaScript",
         },
       },
     },
@@ -418,6 +415,11 @@ const translations = {
           desc: "A website for a specialist hair salon in Isfahan, featuring its services, portfolio, and an easy way for clients to get in touch.",
           tags: "PHP",
         },
+        sarayoga: {
+          title: "Sara Yoga",
+          desc: "An introductory and services website for Sara Yoga, showcasing classes and offerings — fully designed and built with HTML, CSS, and JavaScript: light and fast.",
+          tags: "HTML · CSS · JavaScript",
+        },
       },
     },
     teaching: {
@@ -468,13 +470,9 @@ const translations = {
   },
 };
 
-/* =========================================================
-   2) هسته‌ی i18n
-   ========================================================= */
 let currentLang = "fa";
 const langBtn = document.getElementById("langBtn");
 
-/* خواندن متن از شیء ترجمه‌ها با مسیر نقطه‌چین */
 function t(key) {
   const val = key
     .split(".")
@@ -482,7 +480,6 @@ function t(key) {
   return val === undefined ? key : val;
 }
 
-/* یکدست‌سازی ارقام قابل‌نمایش با ارقام لاتین */
 function normalizeDigits() {
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
   let node;
@@ -494,7 +491,6 @@ function normalizeDigits() {
   }
 }
 
-/* اعمال یک زبان روی کل سند — برای افزودن زبان جدید فقط شیء جدید لازم است */
 function setLanguage(lang) {
   if (!translations[lang]) return;
   currentLang = lang;
@@ -518,7 +514,7 @@ function setLanguage(lang) {
       });
   });
 
-  renderSkills(); // نام و توضیح مهارت‌ها هم از ترجمه می‌آیند
+  renderSkills(); 
   document.title = t("pageTitle");
   if (langBtn) {
     const nextLang = lang === "fa" ? "en" : "fa";
@@ -536,13 +532,9 @@ function setLanguage(lang) {
   refreshIcons();
 }
 
-/* =========================================================
-   3) مهارت‌ها — داده، رندر کاشی‌ها و حلقه‌ها
-   ========================================================= */
 const SKILL_CATS = ["frontend", "backend", "infra", "soft"];
 
 const SKILLS = [
-  // فرانت‌اند
   {
     cat: "frontend",
     id: "html",
@@ -587,7 +579,6 @@ const SKILLS = [
   },
   { cat: "frontend", id: "pwa", level: 100, icon: "lucide", cls: "smartphone" },
   { cat: "frontend", id: "twa", level: 100, icon: "lucide", cls: "app-window" },
-  // بک‌اند
   {
     cat: "backend",
     id: "php",
@@ -609,10 +600,8 @@ const SKILLS = [
     icon: "devicon",
     cls: "devicon-mysql-plain",
   },
-  // امنیت و زیرساخت
   { cat: "infra", id: "cyber", level: 90, icon: "lucide", cls: "shield-check" },
   { cat: "infra", id: "hosting", level: 100, icon: "lucide", cls: "server" },
-  // رهبری و مهارت نرم
   {
     cat: "soft",
     id: "mentorBe",
@@ -628,7 +617,7 @@ const SKILLS = [
 ];
 
 const RING_R = 52;
-const RING_C = 2 * Math.PI * RING_R; // محیط دایره
+const RING_C = 2 * Math.PI * RING_R; 
 let skillObserver = null;
 
 function skillIconHtml(sk) {
@@ -637,7 +626,6 @@ function skillIconHtml(sk) {
     : `<i data-lucide="${sk.cls}" aria-hidden="true"></i>`;
 }
 
-/* رندر کاشی‌های مهارت داخل پنل‌های دسته‌ها */
 function renderSkills() {
   SKILL_CATS.forEach((cat) => {
     const panel = document.getElementById("panel-" + cat);
@@ -673,16 +661,10 @@ function renderSkills() {
   });
 }
 
-/* =========================================================
-   4) تشخیص «کاهش حرکت» سیستم
-   ========================================================= */
 const prefersReduced = window.matchMedia(
   "(prefers-reduced-motion: reduce)",
 ).matches;
 
-/* =========================================================
-   5) تم: روشن/تاریک + localStorage + احترام به تنظیم سیستم
-   ========================================================= */
 const rootEl = document.documentElement;
 const themeBtn = document.getElementById("themeBtn");
 let themeTimer = 0;
@@ -694,7 +676,6 @@ function applyTheme(theme, save) {
     try {
       localStorage.setItem("rt-theme", theme);
     } catch (e) {
-      /* حالت خصوصی */
     }
   }
   window.clearTimeout(themeTimer);
@@ -709,7 +690,6 @@ function initTheme() {
   try {
     saved = localStorage.getItem("rt-theme");
   } catch (e) {
-    /* نادیده */
   }
   const theme = saved === "dark" ? "dark" : "light";
   rootEl.setAttribute("data-theme", theme);
@@ -724,9 +704,6 @@ function initTheme() {
   }
 }
 
-/* =========================================================
-   6) ناوبری: حالت اسکرول، منوی موبایل، لینک فعال
-   ========================================================= */
 const navEl = document.querySelector(".nav");
 const menuBtn = document.getElementById("menuBtn");
 const navLinks = document.getElementById("navLinks");
@@ -777,9 +754,6 @@ function initNav() {
   );
 }
 
-/* =========================================================
-   7) reveal هنگام ورود به دید (با تأخیر پلکانی)
-   ========================================================= */
 function initReveal() {
   const els = [...document.querySelectorAll("[data-reveal]")];
 
@@ -811,9 +785,6 @@ function initReveal() {
   els.forEach((el) => io.observe(el));
 }
 
-/* =========================================================
-   8) شمارنده‌ها: یک بار، فقط هنگام دیده شدن
-   ========================================================= */
 function initCounters() {
   const run = (el) => {
     const target = parseInt(el.dataset.count, 10) || 0;
@@ -849,9 +820,6 @@ function initCounters() {
   document.querySelectorAll(".counter-num").forEach((el) => io.observe(el));
 }
 
-/* =========================================================
-   9) حلقه‌های مهارت: فعال‌سازی هنگام دیده شدن
-   ========================================================= */
 function animateSkill(tile) {
   if (tile.dataset.animated === "1") return;
   tile.dataset.animated = "1";
@@ -882,7 +850,6 @@ function animateSkill(tile) {
   }
 
   tile.classList.add("in");
-  // حذف تأخیر پلکانی تا هاورها بی‌تأخیر بمانند
   window.setTimeout(() => {
     tile.style.transitionDelay = "";
   }, 950);
@@ -918,9 +885,6 @@ function initSkillRings() {
   });
 }
 
-/* =========================================================
-   10) تب‌های دسته‌بندی مهارت‌ها (با کیبورد)
-   ========================================================= */
 function initTabs() {
   const tabs = [...document.querySelectorAll('.tabs [role="tab"]')];
   if (!tabs.length) return;
@@ -953,16 +917,12 @@ function initTabs() {
   });
 }
 
-/* =========================================================
-   11) افکت‌ها: اسپات‌لایت، دکمه‌ی مغناطیسی، پارالاکس هیرو
-   ========================================================= */
 function initEffects() {
   const canHover = window.matchMedia(
     "(hover: hover) and (pointer: fine)",
   ).matches;
   if (!canHover || prefersReduced) return;
 
-  // هاله‌ی نور دنبال‌کننده‌ی موس روی کارت‌ها
   document.querySelectorAll(".spot, .skill").forEach((card) => {
     card.addEventListener("pointermove", (e) => {
       const r = card.getBoundingClientRect();
@@ -973,7 +933,6 @@ function initEffects() {
     });
   });
 
-  // دکمه‌های مغناطیسی (فقط transform)
   document.querySelectorAll("[data-magnetic]").forEach((btn) => {
     btn.addEventListener("pointermove", (e) => {
       const r = btn.getBoundingClientRect();
@@ -987,7 +946,6 @@ function initEffects() {
     });
   });
 
-  // پارالاکس ملایم عکس هیرو هنگام اسکرول
   const photo = document.getElementById("photoWrap");
   if (photo) {
     let ticking = false;
@@ -1010,25 +968,18 @@ function initEffects() {
   }
 }
 
-/* =========================================================
-   12) آیکون‌های Lucide + سال فوتر
-   ========================================================= */
 function refreshIcons() {
   if (window.lucide && typeof window.lucide.createIcons === "function") {
     window.lucide.createIcons();
   }
 }
 
-/* =========================================================
-   13) راه‌اندازی
-   ========================================================= */
 function init() {
   initTheme();
   let savedLang = "fa";
   try {
     savedLang = localStorage.getItem("rt-lang") || "fa";
   } catch (e) {
-    /* استفاده از فارسی به‌عنوان پیش‌فرض */
   }
   setLanguage(translations[savedLang] ? savedLang : "fa");
   if (langBtn) {
@@ -1038,7 +989,6 @@ function init() {
       try {
         localStorage.setItem("rt-lang", lang);
       } catch (e) {
-        /* تغییر زبان تا پایان این بازدید فعال می‌ماند */
       }
       initSkillRings();
     });

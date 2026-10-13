@@ -1,14 +1,6 @@
-/* =========================================================
-   رضا توکلی — پورتفولیو
-   1. Design tokens (light / dark)  2. Base & utilities
-   3. Background layers  4. Navbar   5. Hero
-   6. Counters  7. About            8. Skills
-   9. Timeline  10. Projects         11. Teaching
-   12. Contact & Footer              13. Motion
-   14. Responsive
-   ========================================================= */
 
-/* ---------- 1. Design tokens ---------- */
+
+
 :root {
   --font-sans: "Vazirmatn", Tahoma, "Segoe UI", system-ui, sans-serif;
   --font-en: "Inter", Arial, sans-serif;
@@ -85,7 +77,7 @@
   --shadow-1: 0 10px 30px -12px rgba(0, 0, 0, 0.6);
   --shadow-2: 0 24px 60px -24px rgba(0, 0, 0, 0.7);
 }
-/* ---------- 2. Base & utilities ---------- */
+
 *,
 *::before,
 *::after {
@@ -228,7 +220,7 @@ ol {
   -webkit-backdrop-filter: blur(14px);
 }
 
-/* دکمه‌ها */
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -312,7 +304,7 @@ ol {
   height: 19px;
 }
 
-/* ---------- 3. Background layers ---------- */
+
 .bg-grid {
   position: fixed;
   inset: 0;
@@ -369,7 +361,7 @@ ol {
   border: 0;
 }
 
-/* ---------- 4. Navbar ---------- */
+
 .nav {
   position: fixed;
   inset-block-start: 0;
@@ -471,7 +463,7 @@ ol {
   letter-spacing: 0.02em;
 }
 
-/* دکمه‌های آیکنی: نمایش sun/moon بر اساس تم */
+
 .theme-btn .ico-moon,
 .menu-btn .ico-close {
   display: none;
@@ -486,7 +478,7 @@ ol {
   display: none;
 }
 
-/* ---------- 5. Hero ---------- */
+
 .hero {
   padding-block: calc(var(--nav-h) + 56px) 64px;
   scroll-margin-top: var(--nav-h);
@@ -539,7 +531,7 @@ ol {
   margin-block-start: 28px;
 }
 
-/* کارت ترمینال (متن ثبد، بدون تایپ) */
+
 .terminal {
   margin-block-start: 34px;
   max-width: 470px;
@@ -600,7 +592,7 @@ ol {
   color: var(--terminal-text);
 }
 
-/* تصویر هیرو */
+
 .hero-visual {
   position: relative;
   justify-self: center;
@@ -655,12 +647,12 @@ ol {
   opacity: 0;
   transition: opacity 0.35s var(--ease);
 }
-/* فقط وقتی عکس بارگذاری نشود، جایگزین RT نمایان می‌شود */
+
 .photo-wrap.no-photo .photo-fallback {
   opacity: 0.96;
 }
 
-/* چیپ‌های شناور دور عکس */
+
 .chip {
   position: absolute;
   z-index: 2;
@@ -704,7 +696,7 @@ ol {
   }
 }
 
-/* ---------- 6. Counters strip ---------- */
+
 .counters-strip {
   padding-block: 8px 40px;
   scroll-margin-top: var(--nav-h);
@@ -750,7 +742,7 @@ ol {
   font-weight: 600;
 }
 
-/* ---------- 7. About ---------- */
+
 .about-grid {
   display: grid;
   grid-template-columns: 1.6fr 1fr;
@@ -824,7 +816,7 @@ ol {
   color: #a78bfa;
 }
 
-/* ---------- 8. Skills: tabs + tiles + rings ---------- */
+
 .tabs {
   display: flex;
   flex-wrap: wrap;
@@ -981,7 +973,7 @@ ol {
   stroke-width: 2.35;
 }
 
-/* مهارت‌های 100: حلقه‌ی کامل + درخشش + حلقه‌ی بیرونی */
+
 .skill.is-max .ring-progress {
   filter: drop-shadow(0 0 6px rgba(139, 92, 246, 0.85));
 }
@@ -1037,7 +1029,7 @@ ol {
   }
 }
 
-/* ---------- 9. Experience timeline ---------- */
+
 .timeline {
   position: relative;
   padding-inline-start: 34px;
@@ -1177,7 +1169,7 @@ html[lang="en"] .teach-meta {
   transform: rotate(45deg);
 }
 
-/* ---------- 10. Projects ---------- */
+
 .proj-group + .proj-group {
   margin-block-start: 46px;
 }
@@ -1272,7 +1264,7 @@ html[lang="en"] .teach-meta {
   display: none;
 }
 
-/* لوگوهای کم‌کنتراست/عریض، فضای خواناتری می‌گیرند. */
+
 .proj-logo.logo-jambrs {
   width: 92px;
   height: 92px;
@@ -1354,7 +1346,7 @@ html[lang="en"] .teach-meta {
   margin-block-start: auto;
 }
 
-/* پروژه‌ی ویژه: حاشیه‌ی گرادیانی متحرک */
+
 .proj.featured {
   border-color: transparent;
   background:
@@ -1404,7 +1396,7 @@ html[lang="en"] .teach-meta {
   }
 }
 
-/* ---------- 11. Teaching & Mentoring ---------- */
+
 .teach-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1505,7 +1497,7 @@ html[lang="en"] .teach-meta {
   color: var(--accent);
 }
 
-/* ---------- 12. Contact ---------- */
+
 .contact-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1637,7 +1629,7 @@ html[lang="en"] .teach-meta {
   flex: none;
 }
 
-/* ---------- 13. Footer ---------- */
+
 .footer {
   border-block-start: 1px solid var(--line);
   padding-block: 26px;
@@ -1664,7 +1656,7 @@ html[lang="en"] .teach-meta {
   flex: none;
 }
 
-/* ---------- 14. Reveal & signature motion ---------- */
+
 [data-reveal] {
   opacity: 0;
   transform: translateY(26px);
@@ -1677,7 +1669,7 @@ html[lang="en"] .teach-meta {
   transform: translateY(0);
 }
 
-/* هاله‌ی نور دنبال‌کننده‌ی موس (اسپات‌لایت) */
+
 .spot::before,
 .skill::before {
   content: "";
@@ -1698,7 +1690,7 @@ html[lang="en"] .teach-meta {
   opacity: 1;
 }
 
-/* گذار نرم هنگام تعویض تم */
+
 html.theme-anim body,
 html.theme-anim .nav,
 html.theme-anim .glass,
@@ -1717,7 +1709,7 @@ html.theme-anim .counters {
     box-shadow 0.45s var(--ease) !important;
 }
 
-/* ---------- 15. Responsive ---------- */
+
 @media (max-width: 1080px) {
   .hero-grid {
     grid-template-columns: 1fr;
@@ -1739,7 +1731,7 @@ html.theme-anim .counters {
   }
 }
 
-/* موبایل: منوی همبرگری */
+
 @media (max-width: 900px) {
   .menu-btn {
     display: inline-flex;
@@ -1973,7 +1965,7 @@ html.theme-anim .counters {
   }
 }
 
-/* دستگاه‌های لمسی: جلوگیری از گیر کردن حالت هاور */
+
 @media (hover: none) {
   .proj:hover,
   .skill.in:hover,
@@ -1986,7 +1978,7 @@ html.theme-anim .counters {
   }
 }
 
-/* ---------- 16. کاهش حرکت ---------- */
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
